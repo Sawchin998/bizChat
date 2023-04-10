@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum :gender, { male: 0, female: 1, others: 2 }
+  validates :email, format: { with: /\A[\w+\-.]+@bajratechnologies.com\z/i,
+    message: "Only Bajra Technologies email addresses are allowed" }
 end
