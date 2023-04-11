@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_validation :normalize_name
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -10,4 +11,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 2 }
   validates :gender, presence: true
   validates :password, length: { minimum: 8 }
+
+  private
+  def normalize_name
+    self.name = name.strip if name.present?
+  end
 end
