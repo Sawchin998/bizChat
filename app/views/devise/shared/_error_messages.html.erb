@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
   <div id="error_explanation" data-turbo-cache="false">
     
-      <%=resource.errors.full_messages_for(attribute).join(",")%>
+      <%=resource.errors.full_messages_for(attribute).join(" and ")%>
     
   </div>
 <% end %>
