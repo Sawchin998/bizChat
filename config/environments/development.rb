@@ -76,7 +76,7 @@ Rails.application.configure do
   port:                 587,
   domain:               'bajratechnologies.com',
   user_name:            'sachin.maharjan@bajratechnologies.com',
-  password:             'mlafethbaijeuszy',
+  password:             ENV['SMTP_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true,
   open_timeout:         5,
