@@ -1,43 +1,62 @@
-<h2>Sign up</h2>
+<div class="signup-container">
+  <div class="main-text">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="bizz-chat">
+        <span class="bizz">biz</span> <span class="chat">chat</span>
+      </div>
+      <h3 style="color: #736D6D">Lets Get Started</h3>
+      <h4 style="color: #736D6D">Create an account to get started</h4>
+      
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+        <%= render "devise/shared/error_messages", resource: resource, attribute: :name %>
+      </div>
+      <div class="field">
+        <%= f.label :gender %><br />
+        <div class="radio-group">
+          <%= f.radio_button :gender, :male%>
+          <%= f.label :gender_male, "Male" %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+          <%= f.radio_button :gender, :female%>
+          <%= f.label :gender_female, "Female" %>
+
+          <%= f.radio_button :gender, :others%>
+          <%= f.label :gender_others, "Others" %>
+        </div>
+        <%= render "devise/shared/error_messages", resource: resource, attribute: :gender %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+        <%= render "devise/shared/error_messages", resource: resource, attribute: :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password %>
+        <%= render "devise/shared/error_messages", resource: resource, attribute: :password %>
+      </div>
+
+      <div class="field">
+        <%= f.label :Re_enter_Password %><br />
+        <%= f.password_field :password_confirmation %>
+        <%= render "devise/shared/error_messages", resource: resource, attribute: :password_confirmation%>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+      <h4>Already have an account ? <span style="color: #BE263B;">
+      <%= link_to "Log in", new_session_path(resource_name) %></span></h4>
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.radio_button :gender, :male%>
-    <%= f.label :gender_male, "Male" %>
-
-    <%= f.radio_button :gender, :female%>
-    <%= f.label :gender_male, "Female" %>
-
-    <%= f.radio_button :gender, :others%>
-    <%= f.label :gender_male, "Others" %>
+  <div class="image-container">
+    <div>
+      <%= image_tag "fig1.png" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
