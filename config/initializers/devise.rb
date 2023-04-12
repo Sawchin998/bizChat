@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9820e08b458cd0a70bbd1cb6d090fce21d6933a8ae1196673e3fc1eb7628b53ddfe796d301e80cce6eb0ec54247c6be4b16c2f234c4fda024af7e7d3a99f4798'
+  # config.secret_key = '42dbda9636efe2d84588a3606af5e310b13b93b84bf32853533bb8238298285b7688d06a48e97907625461da9de50a1c5856b9dee1ec9e2ef4e9e4bd09fc6105'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '62ceff8cf74325bcab1a028eedd650d2147580d1d817915a7aa0e9d737effe88df6a94ad9d0a8de4eed6cd1695f4f434964d5dae744f1379cdcda74c98674144'
+  # config.pepper = '25b1fb650659e4cb9f2ff79650ff22c97b4983564c5e91e2bd0977e2df2c54fe2bbfda17ca770388cabe0fc8d88c89c9fe049462af7abebd58d81dcff808139f'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -151,7 +151,7 @@ Devise.setup do |config|
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
-  config.confirm_within = 3.days
+  # config.confirm_within = 3.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
@@ -164,7 +164,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 2.weeks
+  # config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
