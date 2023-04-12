@@ -6,7 +6,8 @@
       </div>
       <h3 style="color: #736D6D">Lets Get Started</h3>
       <h4 style="color: #736D6D">Create an account to get started</h4>
-      
+
+      <%= render "devise/shared/notice"%>
 
       <div class="field">
         <%= f.label :name %><br />
@@ -49,8 +50,8 @@
       <div class="actions">
         <%= f.submit "Sign up" %>
       </div>
-      <h4>Already have an account ? <span style="color: #BE263B;">
-      <%= link_to "Log in", new_session_path(resource_name) %></span></h4>
+      <h4>Already have an account ? 
+      <%= link_to "Log in", new_session_path(resource_name), style: 'color: #BE263B' %></h4>
       <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
     <% end %>
   </div>
