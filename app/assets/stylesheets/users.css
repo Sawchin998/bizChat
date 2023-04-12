@@ -15,9 +15,18 @@ body {
 	width: 768px;
 	height: 792px;
 	margin: 144px 177px;
-	
 	background-color: white;
-	
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+}
+
+.forgot-container {
+	display: flex;
+	position: relative;
+	width: 750px;
+	height: 500px;
+	margin: 144px 177px;
+	background-color: white;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 }
@@ -32,9 +41,16 @@ body {
 	height: 266.73px;
 	left: 469px;
 	top: 245px;
-	
-	
 }
+
+.image-container2 {
+	position: absolute;
+	width: 252px;
+	height: 266.73px;
+	left: 469px;
+	top: 85px;
+}
+
 
 .image-container img{
 	width:100%;
@@ -57,7 +73,7 @@ body {
 
 form {
 	background-color: #ffffff;
-	padding: 30px;
+	padding: 23px;
 	
 	text-align: center;
     
