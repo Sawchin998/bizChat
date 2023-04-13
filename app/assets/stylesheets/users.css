@@ -12,8 +12,8 @@ body {
 .signup-container {
 	display: flex;
 	position: relative;
-	width: 768px;
-	height: 792px;
+	width: 790px;
+	height: 850px;
 	margin: 144px 177px;
 	background-color: white;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -31,15 +31,11 @@ body {
 	border-radius: 5px;
 }
 
-.main-text{
-	flex:0.5
-}
-
 .image-container {
 	position: absolute;
-	width: 252px;
+	width: 260px;
 	height: 266.73px;
-	left: 469px;
+	left: 500px;
 	top: 245px;
 }
 
@@ -122,8 +118,7 @@ input[type="submit"] {
 	font-size: 16px;
 	cursor: pointer;
 	margin-top: 10px;
-    width: 100%;
-    margin-top: 30px;
+  width: 100%;
 }
 
 label {

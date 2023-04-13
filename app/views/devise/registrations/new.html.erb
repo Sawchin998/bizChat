@@ -1,5 +1,5 @@
 <div class="signup-container">
-  <div class="main-text">
+  <div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="bizz-chat">
         <span class="bizz">biz</span> <span class="chat">chat</span>
@@ -10,12 +10,12 @@
       <%= render "devise/shared/notice"%>
 
       <div class="field">
-        <%= f.label :name %><br />
+        <%= f.label :name %>
         <%= f.text_field :name, autofocus: true %>
         <%= render "devise/shared/error_messages", resource: resource, attribute: :name %>
       </div>
       <div class="field">
-        <%= f.label :gender %><br />
+        <%= f.label :gender %>
         <div class="radio-group">
           <%= f.radio_button :gender, :male%>
           <%= f.label :gender_male, "Male" %>
@@ -30,29 +30,29 @@
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
         <%= render "devise/shared/error_messages", resource: resource, attribute: :email %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
+        <%= f.label :password %>
         <%= f.password_field :password %>
         <%= render "devise/shared/error_messages", resource: resource, attribute: :password %>
       </div>
 
       <div class="field">
-        <%= f.label :Re_enter_Password %><br />
+        <%= f.label :Re_enter_Password %>
         <%= f.password_field :password_confirmation %>
         <%= render "devise/shared/error_messages", resource: resource, attribute: :password_confirmation%>
       </div>
 
-      <div class="actions">
+      <div class="actions" id="my-button">
         <%= f.submit "Sign up" %>
       </div>
       <h4>Already have an account ? 
       <%= link_to "Log in", new_session_path(resource_name), style: 'color: #BE263B' %></h4>
-      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
     <% end %>
   </div>
   <div class="image-container">
@@ -60,4 +60,9 @@
       <%= image_tag "fig1.png" %>
     </div>
   </div>
+</div>
+
+<div id="popup" style="display: none;">
+  <h2>Email has been sent!</h2>
+  <p>please check your email to verify.<p>
 </div>
