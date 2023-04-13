@@ -131,7 +131,12 @@ label {
   margin-bottom: 0px; 
 }
 
-.error-msg{
+.alert-msg{
 	color: red;
 	font-size: 12px;
 }  
+
+.notice-msg{
+	color: green;
+	font-size: 12px;
+}

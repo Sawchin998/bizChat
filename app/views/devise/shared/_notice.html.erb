@@ -1,6 +1,10 @@
-<div class="error-msg">
-  <% if notice || alert%>
-    <p class="notice"><%= notice %></p> 
+<div class="alert-msg">
+  <% if alert %>
     <p class="alert"><%= alert %></p>
+  <% end %>
+</div>
+<div class="notice-msg">
+  <% if notice %>
+    <p class="notice"><%= notice %></p> 
   <% end %>
 </div>
