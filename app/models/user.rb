@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   before_validation :normalize_name
+  has_one_attached :avatar
+  has_and_belongs_to_many :groups
+  has_many :messages
+  has_many :messages, as: :receiver
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
