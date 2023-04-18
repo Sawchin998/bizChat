@@ -68,3 +68,4 @@ group :development do
 end
 
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
+gem 'ruby-vips', '~> 2.1', '>= 2.1.4'

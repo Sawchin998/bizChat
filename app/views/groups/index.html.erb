@@ -1,0 +1,10 @@
+<h1>All Groups</h1>
+
+<% @groups.each do |group| %>
+  <div>
+    <%= link_to group.name, "#" %>
+    <% if group.avatar.attached? %>
+      <%= image_tag group.avatar, style: "height: 20px; width: 20px;" %>
+    <% end %>
+  </div>
+<% end %>
