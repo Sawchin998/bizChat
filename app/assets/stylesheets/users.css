@@ -75,10 +75,9 @@ form {
     
 }
 
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.outer input[type="text"],
+.outer input[type="email"],
+.outer input[type="password"] {
 	display: block;
 	margin: 10px 0;
 	padding: 10px;
@@ -89,9 +88,9 @@ input[type="password"] {
 	box-sizing: border-box;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+.outer input[type="text"]:focus,
+.outer input[type="email"]:focus,
+.outer input[type="password"]:focus {
 background-color: rgba(190, 38, 59, 0.02);
 color:grey;
 }
