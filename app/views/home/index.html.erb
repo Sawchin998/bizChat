@@ -1,4 +1,100 @@
-<%if user_signed_in? %>
+<!-- <%if user_signed_in? %>
   <%= button_to "sign out", destroy_user_session_path, method: :delete %>
-<% end %>
+<% end %> -->
+<div class="homepage">
+  <div class="sidebar">
+    <div class="top-item">
+      <%= link_to "#" do %>
+        <%= image_tag "biz.png" %>
+      <% end %>
+    </div>
+    <div class="middle-item">
+      <%= link_to "#" do %>
+        <%= image_tag "chat.png" %>
+      <% end %>
+    </div>
+    <div class="buttom-item">
+      <%= link_to "#" do %>
+        <%= image_tag "settings.png" %>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="left-section">
+    <div class="left-item1">
+      <div class="left-item1-chat">
+        Chat
+      </div>
+      <div class="left-item1-avatar">
+        <% if current_user.avatar.present? %>
+          <%= image_tag current_user.avatar%>
+        <% else %>
+          <%= image_tag "aaa.jpg" %>
+        <% end%>
+      </div>
+      <div class="left-item1-name">
+        <%= current_user.name%>
+      </div>
+    </div>
+
+    <div class="left-item2">
+      <div class="add-new1">
+        <%= link_to "#" do %>
+          <%= image_tag "add_new.png" %>
+        <% end %>
+      </div>
+      <div class="left-item2-channels">
+        Channels
+      </div>
+      <div class="left-item2-channel">
+        <% current_user.groups.each do |group| %>
+          <div class="group-lists">
+            <%= link_to "#" do %>
+              <% if group.avatar.present? %>
+                <%= image_tag group.avatar%>
+              <% else %>
+                <%= image_tag "aaa.jpg" %>
+            <% end%>
+            <% end%>
+            <div class="group-name"> 
+              <%= group.name%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+    <div class="left-item3">
+      <div class="add-new1">
+        <%= link_to "#" do %>
+          <%= image_tag "add_new.png" %>
+        <% end %>
+      </div>
+      <div class="left-item3-chats">
+        Chats
+      </div>
+      <div class="left-item3-search">
+        <form action="/home/search" method="get">
+          <input type="text" name="q" placeholder="Search users...">
+          <input type="submit" value="Search">
+        </form>
+
+       
+      </div>
+    </div>
+
+
+    <div class="left-item4">
+      eft-item1
+    </div>
+  </div>
+
+
+
+
+  <div class="middle-section">middle-section</div>
+  <div class="right-section">right-section</div>
+</div>
