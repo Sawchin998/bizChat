@@ -29,7 +29,7 @@
         <% if current_user.avatar.present? %>
           <%= image_tag current_user.avatar%>
         <% else %>
-          <%= image_tag "aaa.jpg" %>
+          <%= image_tag "aaa.jpeg" %>
         <% end%>
       </div>
       <div class="left-item1-name">
@@ -53,7 +53,7 @@
               <% if group.avatar.present? %>
                 <%= image_tag group.avatar%>
               <% else %>
-                <%= image_tag "aaa.jpg" %>
+                <%= image_tag "aaa.jpeg" %>
             <% end%>
             <% end%>
             <div class="group-name"> 
@@ -76,25 +76,40 @@
       <div class="left-item3-chats">
         Chats
       </div>
-      <div class="left-item3-search">
-        <form action="/home/search" method="get">
-          <input type="text" name="q" placeholder="Search users...">
-          <input type="submit" value="Search">
-        </form>
-
-       
+        <div class="left-item3-search">
+          <%= form_for :search, url: "home/search", method: :post do |f| %>
+          <%= f.text_field :query, placeholder: 'Search' %>
+          <%= button_tag type: "submit", class: "btn btn-primary", data: {turbo_frame: "search-frame"} do %>
+            <%= image_tag "Magnifier.png" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
 
-
+    
     <div class="left-item4">
-      eft-item1
+      <%= turbo_frame_tag "search-frame" do%>
+        <div class="left-item4-all">
+          All
+        </div>
+        <div class="chat-list">
+          <% @conversations.each do |c| %>
+            <div class="conversation">
+            <%= c%> 
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
 
 
-
-  <div class="middle-section">middle-section</div>
-  <div class="right-section">right-section</div>
+  
+  <div class="middle-section">
+    
+  </div>
+  
+  <div class="right-section">
+  </div>
 </div>

@@ -88,6 +88,7 @@
 
 .left-item2-channel{
  display: flex;
+ max-width: 420px;
  overflow-x: scroll;
  align-items: center;
  height: 85%;
@@ -121,12 +122,56 @@
   margin-left: 10px;
 }
 
-.left-item4 {
-  background-color: orchid;
-  flex: 5;
+.left-item3-search input[type="text"]{
+  border-radius: 20px;
+  border: none;
+  box-shadow: 10px 10px 10px gray;
+  padding: 10px;
+	width: 90%;
+  font-size: 18px;
+  color: rgb(43, 41, 41);
+  font-weight: 500;
 }
 
+.left-item3-search button {
+  position: relative;
+  left: 156px;
+  bottom: 32px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+}
 
+.left-item3-search button:active {
+  box-shadow: 10px 10px 10px gray;
+}
+
+.user-search {
+  padding: 26px;
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.user-search a{
+  text-decoration: none;
+}
+
+.user-search-email,
+.user-search-name {
+  text-align: center;
+}
+
+.left-item4 {
+  flex: 5;
+  overflow-y: scroll;
+}
+
+.left-item4-all {
+  color: #736D6D;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 10px;
+}
 
 .middle-section {
   background-color: green;

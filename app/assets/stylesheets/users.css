@@ -70,9 +70,7 @@
 form {
 	background-color: #ffffff;
 	padding: 23px;
-	
 	text-align: center;
-    
 }
 
 .outer input[type="text"],
@@ -108,7 +106,7 @@ input[type="radio"] {
 	border: none;
 }
 
-input[type="submit"] {
+.outer input[type="submit"] {
 	background-color: #BE263B;
 	color: #fff;
 	border: none;
