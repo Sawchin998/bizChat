@@ -24,9 +24,7 @@
 }
 
 .left-item2-channel img:active,
-.top-item:active,
-.buttom-item:active,
-.middle-item:active{
+.buttom-item:active{
   box-shadow: 5px 5px 10px black;
 }
 
@@ -130,7 +128,6 @@
   font-size: 18px;
   color: rgb(43, 41, 41);
   font-weight: 500;
-  width: 331px;
 }
 
 .left-item3-search button {
