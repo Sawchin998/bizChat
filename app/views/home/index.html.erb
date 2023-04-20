@@ -50,11 +50,7 @@
         <% current_user.groups.each do |group| %>
           <div class="group-lists">
             <%= link_to "#" do %>
-              <% if group.avatar.present? %>
-                <%= image_tag group.avatar%>
-              <% else %>
                 <%= image_tag "aaa.jpeg" %>
-            <% end%>
             <% end%>
             <div class="group-name"> 
               <%= group.name%>
@@ -77,9 +73,9 @@
         Chats
       </div>
         <div class="left-item3-search">
-          <%= form_for :search, url: "home/search", method: :post do |f| %>
-          <%= f.text_field :query, placeholder: 'Search' %>
-          <%= button_tag type: "submit", class: "btn btn-primary", data: {turbo_frame: "search-frame"} do %>
+        <%= form_for :search, url: 'home/search', method: :post do |f| %>
+          <%= f.text_field :query, name: 'query', placeholder: 'Search' %>
+          <%= button_tag type: "submit", data: { turbo_frame: "search-frame"} do %>
             <%= image_tag "Magnifier.png" %>
           <% end %>
         <% end %>
