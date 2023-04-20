@@ -1,25 +1,27 @@
-<%= form_for(@group) do |f| %>
-  <% if @group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
-
-      <ul>
-        <% @group.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+<%= turbo_frame_tag "add-group" do%>
+  <div class="outer">
+    <%= form_for(@group) do |f| %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <% if @group.errors[:name].any? %>
+          <div class="text-danger">
+            <%= @group.errors[:name].join(', ') %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+      </div>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+        <% if @group.errors[:description].any? %>
+          <div class="text-danger">
+            <%= @group.errors[:description].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= f.submit %>
+    <% end %>
   </div>
-
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <%= f.submit %>
 <% end %>

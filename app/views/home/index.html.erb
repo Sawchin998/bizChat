@@ -4,14 +4,10 @@
 <div class="homepage">
   <div class="sidebar">
     <div class="top-item">
-      <%= link_to "#" do %>
-        <%= image_tag "biz.png" %>
-      <% end %>
+      <%= image_tag "biz.png" %>
     </div>
     <div class="middle-item">
-      <%= link_to "#" do %>
-        <%= image_tag "chat.png" %>
-      <% end %>
+      <%= image_tag "chat.png" %>
     </div>
     <div class="buttom-item">
       <%= link_to edit_user_registration_path, data: { turbo_frame: "update-user"} do %>
@@ -29,7 +25,11 @@
         <% if current_user.avatar.present? %>
           <%= image_tag current_user.avatar%>
         <% else %>
-          <%= image_tag "aaa.jpeg" %>
+          <% if current_user.gender == "male"%>
+            <%= image_tag "male_avatar.png" %>
+          <% else %>
+            <%= image_tag "female_avatar.png" %>
+          <% end %>
         <% end%>
       </div>
       <div class="left-item1-name">
@@ -39,7 +39,7 @@
 
     <div class="left-item2">
       <div class="add-new1">
-        <%= link_to "#" do %>
+        <%= link_to new_group_path, data: {turbo_frame: "add-group"} do %>
           <%= image_tag "add_new.png" %>
         <% end %>
       </div>
@@ -64,11 +64,6 @@
 
 
     <div class="left-item3">
-      <div class="add-new1">
-        <%= link_to "#" do %>
-          <%= image_tag "add_new.png" %>
-        <% end %>
-      </div>
       <div class="left-item3-chats">
         Chats
       </div>
@@ -103,8 +98,10 @@
 
   
   <div class="middle-section">
-    <%= turbo_frame_tag "update-user" do%>
-      abcuygsuygs
+    <%= turbo_frame_tag  "add-group" do%>
+      <%= turbo_frame_tag  "update-user" do%>
+       ghfhgfhg
+      <% end %>
     <% end %>
   </div>
   
