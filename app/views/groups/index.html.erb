@@ -3,8 +3,6 @@
 <% @groups.each do |group| %>
   <div>
     <%= link_to group.name, "#" %>
-    <% if group.avatar.attached? %>
-      <%= image_tag group.avatar, style: "height: 20px; width: 20px;" %>
-    <% end %>
+   <%= group.description %>
   </div>
 <% end %>
