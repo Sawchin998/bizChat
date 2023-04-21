@@ -50,7 +50,19 @@
         <% current_user.groups.each do |group| %>
           <div class="group-lists">
             <%= link_to "#" do %>
-                <%= image_tag "aaa.jpeg" %>
+              <%if group.name.length == 3%>
+                <%= image_tag "group1.png" %>
+              <%elsif group.name.length == 4%>
+                <%= image_tag "group2.png" %>
+              <%elsif group.name.length == 5%>
+                <%= image_tag "group3.png" %>
+              <%elsif group.name.length == 6%>
+                <%= image_tag "group3.jpg" %>
+              <%elsif group.name.length == 7%>
+                <%= image_tag "group5.jpeg" %>
+              <%else%>
+                <%= image_tag "group6.jpeg" %>
+              <%end%>
             <% end%>
             <div class="group-name"> 
               <%= group.name%>
@@ -99,7 +111,7 @@
   
   <div class="middle-section">
     <%= turbo_frame_tag  "add-group" do%>
-      <%= turbo_frame_tag  "update-user" do%>
+      <%= turbo_frame_tag "update-user" do%>
        ghfhgfhg
       <% end %>
     <% end %>
