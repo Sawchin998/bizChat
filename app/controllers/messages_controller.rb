@@ -1,14 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @messages = Message.all
-  end
-
-  def new
-    @message = Message.new
-  end
-
   def create
     @message = Message.new(message_params)
     @message.user = current_user
@@ -26,9 +18,8 @@ class MessagesController < ApplicationController
       elsif receiver_type == "Group"
         GroupChannel.broadcast_to(@message.receiver, @message)
       end
-      redirect_to messages_url
     else
-      render "new", status: :unprocessable_entity
+      render  status: :unprocessable_entity
     end
   end
   

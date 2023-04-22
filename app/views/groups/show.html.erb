@@ -1,0 +1,23 @@
+<%= turbo_frame_tag "edit-add" do%>
+  <div class="grp-msg">
+    <% @group.messages.each do |msg|%>
+      <%= msg.content %><br>
+    <% end %>
+    <div class="msg-send">
+      <%= form_with(model: [@group, @group.messages.build], local: true) do |form| %>
+       <%= form.hidden_field :receiver_type, value: "Group" %>
+       <%= form.hidden_field :receiver_id, value: @group.id %> 
+        <div class="field">
+          <%= form.label :content %>
+          <%= form.text_field :content %>
+        </div>
+        <%= form.submit "Send" %>
+      <% end %>
+    </div>
+  <div>
+<% end %>
+
+<%= turbo_frame_tag "info-bar" do%>
+  <%= @group.name%>
+
+<% end %>

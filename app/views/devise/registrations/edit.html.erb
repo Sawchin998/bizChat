@@ -3,18 +3,18 @@
   <div class="outer">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="field">
-        <%= f.label :name %><br />
+        <%= f.label :name %>
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         <%= render "devise/shared/error_messages", resource: resource, attribute: :name %>
       </div>
 
       <div class="field">
-        <%= f.label :avatar %><br />
+        <%= f.label :avatar %>
         <%= f.file_field :avatar, autofocus: true%>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         <%= render "devise/shared/error_messages", resource: resource, attribute: :email%>
       </div>
