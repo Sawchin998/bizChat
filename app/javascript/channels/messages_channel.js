@@ -10,7 +10,8 @@ import consumer from "channels/consumer"
     },
   
     received(data) {
-      console.log("messagechannel  ", data)
+      const container = document.getElementById("latest-msg")
+      container.insertAdjacentHTML("beforeend", data)
     }
   });
 

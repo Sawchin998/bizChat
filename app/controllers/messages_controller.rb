@@ -14,7 +14,10 @@ class MessagesController < ApplicationController
   
     if @message.save
       if receiver_type == "User"
-        MessagesChannel.broadcast_to(@message.receiver, @message)
+        MessagesChannel.broadcast_to(@message.receiver, render_to_string(partial: "home/message", 
+          locals: { msg: @message }))
+        MessagesChannel.broadcast_to(@message.user, render_to_string(partial: "home/message", 
+          locals: { msg: @message }))
       elsif receiver_type == "Group"
         GroupChannel.broadcast_to(@message.receiver, render_to_string(partial: "groups/message", 
           locals: { msg: @message }))
