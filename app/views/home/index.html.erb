@@ -46,7 +46,8 @@
       <div class="left-item2-channel">
         <% current_user.groups.each do |group| %>
           <div class="group-lists">
-            <%= link_to group_path(group), data: {turbo_frame: "edit-add" },  class: "group-link", "data-group-id" => group.id do %>
+            <%= link_to group_path(group), data: {turbo_frame: "edit-add" },
+            class: "group-link", "data-group-id" => group.id do %>
               <%if group.name.length == 3%>
                 <%= image_tag "group1.png" %>
               <%elsif group.name.length == 4%>

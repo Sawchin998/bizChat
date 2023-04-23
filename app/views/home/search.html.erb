@@ -1,12 +1,13 @@
 <%= turbo_frame_tag "search-frame" do%>
-  <% @search.each do |val|%>
+  <% @search.each do |user|%>
     <div class="user-search">
-      <%= link_to "#" do%>
+      <%= link_to home_path(user), data: {turbo_frame: "edit-add" }, 
+      class: "user-link", "data-group-id" => user.id do%>
         <div class="user-search-name"> 
-          <%= val[:name] %>
+          <%= user[:name] %>
         </div>
         <div class="user-search-email"> 
-          <%= "(#{val[:email]})" %>
+          <%= "(#{user[:email]})" %>
         </div>
       <% end %>  
     </div>

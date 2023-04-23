@@ -6,22 +6,27 @@ class HomeController < ApplicationController
   end
 
   def search
-    @search = User.where("name LIKE ?",  "%#{params[:query]}%")
+    @search = User.where("name LIKE ? OR email LIKE ?",  "%#{params[:query]}%", "%#{params[:query]}%")
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
 
   def conversation
-    @aaa = []
+    @grp_msg = []
+    @user_msg = []
     @messages = Message.where("user_id = ? OR receiver_id = ?", current_user.id, current_user.id)
-    # @messages.each do |msg|
-    #   if msg[:receiver_type] == "Group"
-        
-    #   else
+    @messages.each do |msg|
+      if msg[:receiver_type] == "Group"
+        @grp_msg << msg
+      else
+        @user_msg << msg
+      end
+    end
 
-    #   end
-    
-    @aaa
-
+    @user_msg
   end  
 end
