@@ -78,12 +78,12 @@
         Chats
       </div>
         <div class="left-item3-search">
-        <%= form_for :search, url: 'home/search', method: :post do |f| %>
-          <%= f.text_field :query, name: 'query', placeholder: 'Search' %>
-          <%= button_tag type: "submit", data: { turbo_frame: "search-frame"} do %>
-            <%= image_tag "Magnifier.png" %>
+          <%= form_for :search, url: 'home/search', method: :post do |f| %>
+            <%= f.text_field :query, name: 'query', placeholder: 'Search' %>
+            <%= button_tag type: "submit", data: { turbo_frame: "search-frame"} do %>
+              <%= image_tag "Magnifier.png" %>
+            <% end %>
           <% end %>
-        <% end %>
       </div>
     </div>
 
@@ -94,10 +94,30 @@
           All
         </div>
         <div class="chat-list">
-          <% @conversations.each do |c| %>
-            <div class="conversation">
-              <%= c.receiver_id%> 
-            </div>
+          <% @msg_users.each do |u| %>
+            <%= link_to home_path(u), data: {turbo_frame: "edit-add" } do %>
+              <div class="conversation">
+                <div class="left-item4-avatar">
+                  <% if u.avatar.present?%>
+                    <%= image_tag url_for(u.avatar) %>
+                  <% else %>
+                    <% if u.gender == "male"%>
+                      <%= image_tag "male_avatar.png" %>
+                    <% else %>
+                      <%= image_tag "female_avatar.png" %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="left-item4-content">
+                  <div class="left-item4-name">
+                    <%= u.name %>
+                  </div>
+                  <div class="left-item4-msg">
+                    <%= Message.find(u.latest_message_id).content %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>

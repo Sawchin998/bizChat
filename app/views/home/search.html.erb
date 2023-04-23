@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "search-frame" do%>
   <% @search.each do |user|%>
     <div class="user-search">
-      <%= link_to home_path(user), data: {turbo_frame: "edit-add" }, 
-      class: "user-link", "data-group-id" => user.id do%>
+      <%= link_to home_path(user), data: {turbo_frame: "edit-add" } do %>
+        <%# class: "user-link", "data-group-id" => user.id %> 
         <div class="user-search-name"> 
           <%= user[:name] %>
         </div>

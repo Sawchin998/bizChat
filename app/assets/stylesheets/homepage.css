@@ -149,10 +149,6 @@
   font-size: 19px;
 }
 
-.user-search a{
-  text-decoration: none;
-}
-
 .user-search-email,
 .user-search-name {
   text-align: center;
@@ -168,6 +164,37 @@
   font-size: 20px;
   font-weight: 400;
   margin-left: 10px;
+}
+
+.conversation {
+  display: flex;
+  margin: 10px;
+}
+
+.left-item4-avatar img {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+
+.left-item4-content {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.left-item4-name {
+  color: rgb(65, 61, 61);
+  font-weight: 600;
+}
+
+.left-item4-msg {
+  width: 300px;
+  color: rgb(87, 83, 83);
+  font-size: 14px;
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .middle-section {
