@@ -16,7 +16,8 @@ class MessagesController < ApplicationController
       if receiver_type == "User"
         MessagesChannel.broadcast_to(@message.receiver, @message)
       elsif receiver_type == "Group"
-        GroupChannel.broadcast_to(@message.receiver, @message)
+        GroupChannel.broadcast_to(@message.receiver, render_to_string(partial: "groups/message", 
+          locals: { msg: @message }))
       end
     else
       render  status: :unprocessable_entity

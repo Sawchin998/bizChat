@@ -1,0 +1,8 @@
+<div id="msg-display">
+  <%= msg.content %><br>
+  <% if msg.images.present?%>
+    <% msg.images.each do |img|%>
+      <%= image_tag url_for(img) %>
+    <% end %>
+  <% end %>
+</div>
