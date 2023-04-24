@@ -1,8 +1,33 @@
 <div class="msg-display">
-  <%= msg.content %><br>
-  <% if msg.images.present?%>
-    <% msg.images.each do |img|%>
-      <%= image_tag url_for(img) %>
-    <% end %>
+  <div class="<%= msg.user_id == current_user.id ? 
+  'msg-display-self' : 'msg-display-other' %>">
+    <div class="msg-display-date">
+      <%= msg.created_at.in_time_zone('Asia/Kathmandu').strftime("%-d %b, %Y %H:%M") %>
+    </div>
+    <div class="msg-display-content">
+      <%= msg.content %>
+    </div>
+    <div class="msg-display-name">
+      <%= msg.user.name %>
+    </div>
+  </div>
+</div>
+
+<div class="msg-display">
+  <% if msg.images.present? %>
+    <div class="<%= msg.images.record.user_id == current_user.id ? 
+    'msg-display-self' : 'msg-display-other' %>">
+      <div class="msg-display-date">
+        <%= msg.images.record.created_at.in_time_zone('Asia/Kathmandu').strftime("%-d %b, %Y %H:%M") %>
+      </div>
+      <div>
+        <% msg.images.each do |img|%>
+          <%= image_tag url_for(img) %>
+        <% end %>
+      </div>
+      <div class="msg-display-name">
+        <%= msg.images.record.user.name %>
+      </div>
+    </div>
   <% end %>
 </div>

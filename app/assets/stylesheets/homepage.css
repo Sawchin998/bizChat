@@ -255,6 +255,72 @@
   color:#545151;
 }
 
+.msg-display .msg-display-self,
+.msg-display .msg-display-other{
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.msg-display-self .msg-display-content{
+  padding: 10px 15px;
+  background-color: blue;
+  border-radius: 20px;
+  margin-left: auto;
+  color: white;
+}
+
+.msg-display-other .msg-display-content{
+  padding: 10px 15px;
+  background-color: gray;
+  border-radius: 20px;
+  margin-right: auto;
+}
+
+.msg-display-other .msg-display-date{
+  font-size: 12px;
+  margin-bottom: 2px;
+  color: #686363;
+}
+
+.msg-display-self .msg-display-date{
+  font-size: 12px;
+  margin-bottom: 2px;
+  color: #686363;
+  margin-left: auto;
+}
+
+.msg-display-other .msg-display-name{
+  font-size: 14px;
+  margin-top: 2px;
+  color: #171616;
+  margin-left: 2%;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.msg-display-self .msg-display-name{
+  font-size: 14px;
+  margin-top: 2px;
+  color: #171616;
+  margin-left: 90%;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.msg-display img{
+  width: 80px;
+  margin: 15px 0px;
+  display: flex;
+}
+
+.msg-display img:hover{
+  width: 400px;
+}
+
+.msg-display-self img{
+  margin-left: auto;
+}
 
 .right-section {
   background-color: yellow;
