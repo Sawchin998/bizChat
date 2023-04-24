@@ -24,6 +24,7 @@
 }
 
 .left-item2-channel img:active,
+.middle-item img:active,
 .buttom-item:active{
   box-shadow: 5px 5px 10px black;
 }
@@ -143,17 +144,6 @@
   box-shadow: 10px 10px 10px gray;
 }
 
-.user-search {
-  padding: 26px;
-  font-weight: 500;
-  font-size: 19px;
-}
-
-.user-search-email,
-.user-search-name {
-  text-align: center;
-}
-
 .left-item4 {
   flex: 5;
   overflow-y: scroll;
@@ -166,27 +156,32 @@
   margin-left: 10px;
 }
 
+.user-search,
 .conversation {
   display: flex;
   margin: 10px;
 }
 
+.user-search-avatar img,
 .left-item4-avatar img {
   height: 50px;
   width: 50px;
   border-radius: 25px;
 }
 
+.user-search-content,
 .left-item4-content {
   padding-left: 10px;
   padding-top: 5px;
 }
 
+.user-search-name,
 .left-item4-name {
   color: rgb(65, 61, 61);
   font-weight: 600;
 }
 
+.user-search-email,
 .left-item4-msg {
   width: 300px;
   color: rgb(87, 83, 83);
@@ -198,8 +193,18 @@
 }
 
 .middle-section {
-  background-color: green;
+  background-color: whitesmoke;
   flex: 8;
+}
+
+.middle-section-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  color: #736D6D;
 }
 
 .right-section {
