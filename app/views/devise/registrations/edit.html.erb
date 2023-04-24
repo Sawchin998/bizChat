@@ -47,7 +47,7 @@
 
       <h4>
         <%= link_to "Log out", destroy_user_session_path, 
-        data: {turbo_method: :delete},
+        data: {turbo_method: :delete, turbo_frame: "_top"},
         style: 'color: #BE263B; margin-top: 10px;' %></h4>
       </h4>
     <% end %>
