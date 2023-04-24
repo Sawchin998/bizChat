@@ -20,19 +20,14 @@
 
     <div class="msg-send">
       <%= form_with(model: [@user, @user.messages.build], local: true) do |form| %>
-       <%= form.hidden_field :receiver_type, value: "User" %>
-       <%= form.hidden_field :receiver_id, value: @user.id %> 
-        <div class="field">
-          <%= form.label :content %>
-          <%= form.text_field :content %>
-        </div>
-
-        <div class="field">
-          <%= form.label :images %>
+        <%= form.hidden_field :receiver_type, value: "User" %>
+        <%= form.hidden_field :receiver_id, value: @user.id %> 
+        <%= form.text_field :content %>
+        
+        <div class="send-attach">
           <%= form.file_field :images %>
+          <%= form.submit "Send" %>
         </div>
-
-        <%= form.submit "Send" %>
       <% end %>
     </div>
   <div>

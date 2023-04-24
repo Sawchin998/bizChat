@@ -89,8 +89,8 @@ form {
 .outer input[type="text"]:focus,
 .outer input[type="email"]:focus,
 .outer input[type="password"]:focus {
-background-color: rgba(190, 38, 59, 0.02);
-color:grey;
+	background-color: rgba(190, 38, 59, 0.02);
+	color:grey;
 }
 
 .radio-group {

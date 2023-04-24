@@ -200,7 +200,7 @@
 .middle-section {
   background-color: whitesmoke;
   flex: 8;
-  overflow-y: scroll;
+  position: relative;
 }
 
 .middle-section-content {
@@ -212,6 +212,49 @@
   font-weight: 600;
   color: #736D6D;
 }
+
+.msg-send form{
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.user-msg,
+.grp-msg {
+  overflow-y: scroll;
+  height: 92%;
+}
+
+.msg-send input[type="text"]{
+  width: 80%;
+  padding: 8px;
+  border-radius: 10px;
+  border-style: solid;
+  position: relative;
+}
+
+.msg-send input[type="file"]{
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 7px;
+  margin-top: 2px;
+}
+ 
+.msg-send input[type="submit"] {
+  position: absolute;
+  top: 5px;
+  right: 84px;
+  border: none;
+  background-color: white;
+  font-weight: 500;
+  font-size: 18px;
+  color:#545151;
+}
+
 
 .right-section {
   background-color: yellow;
