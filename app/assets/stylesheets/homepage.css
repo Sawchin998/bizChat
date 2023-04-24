@@ -162,6 +162,11 @@
   margin: 10px;
 }
 
+.user-search:active,
+.conversation:active {
+  box-shadow: 5px 5px 10px black;
+}
+
 .user-search-avatar img,
 .left-item4-avatar img {
   height: 50px;
@@ -195,6 +200,7 @@
 .middle-section {
   background-color: whitesmoke;
   flex: 8;
+  overflow-y: scroll;
 }
 
 .middle-section-content {
