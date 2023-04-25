@@ -5,11 +5,9 @@
     <% (current_user.messages + @user.messages).sort_by(&:created_at).reverse_each do |msg| %>
       <% if (msg.user_id == current_user.id && msg.receiver_id == @user.id) || 
             (msg.user_id == @user.id && msg.receiver_id == current_user.id) %>
-        <%= render partial: "partial/message", locals: { msg: msg} %>
+        <%= render partial: "partial/message", locals: { msg: msg, sender: current_user} %>
       <% end %>
     <% end %>
-    
-  
 
     <div class="msg-send">
       <%= form_with(model: [@user, @user.messages.build], local: true) do |form| %>

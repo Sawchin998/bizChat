@@ -3,7 +3,7 @@
    <div id="new-msg">
     </div>
     <% @group.messages.reverse_each do |msg|%>
-      <%= render partial: "partial/message", locals: { msg: msg } %>
+      <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
     <% end %>
    
 
@@ -11,7 +11,6 @@
       <%= form_with(model: [@group, @group.messages.build], local: true) do |form| %>
         <%= form.hidden_field :receiver_type, value: "Group" %>
         <%= form.hidden_field :receiver_id, value: @group.id %> 
-
         <%= form.text_field :content %>
       
         <div class="send-attach">

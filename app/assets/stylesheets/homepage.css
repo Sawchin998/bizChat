@@ -310,9 +310,9 @@
 
 .msg-display-self .msg-display-name{
   font-size: 14px;
-  margin-top: 2px;
+  margin-top: 1px;
   color: #171616;
-  margin-left: 90%;
+  margin-left: 92%;
   font-weight: 500;
   font-style: italic;
 }
