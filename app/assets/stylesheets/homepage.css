@@ -228,6 +228,8 @@
 .grp-msg {
   overflow-y: scroll;
   height: 92%;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .msg-send input[type="text"]{

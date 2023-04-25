@@ -1,13 +1,14 @@
 <%= turbo_frame_tag "edit-add" do%>
   <div class="user-msg">
-    <% (current_user.messages + @user.messages).sort_by(&:created_at).each do |msg| %>
+    <div id="latest-msg">
+    </div>
+    <% (current_user.messages + @user.messages).sort_by(&:created_at).reverse_each do |msg| %>
       <% if (msg.user_id == current_user.id && msg.receiver_id == @user.id) || 
             (msg.user_id == @user.id && msg.receiver_id == current_user.id) %>
         <%= render partial: "partial/message", locals: { msg: msg} %>
       <% end %>
     <% end %>
-    <div id="latest-msg">
-    </div>
+    
   
 
     <div class="msg-send">

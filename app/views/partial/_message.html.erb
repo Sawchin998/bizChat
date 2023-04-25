@@ -1,17 +1,21 @@
-<div class="msg-display">
-  <div class="<%= msg.user_id == current_user.id ? 
-  'msg-display-self' : 'msg-display-other' %>">
-    <div class="msg-display-date">
-      <%= msg.created_at.in_time_zone('Asia/Kathmandu').strftime("%-d %b, %Y %H:%M") %>
-    </div>
-    <div class="msg-display-content">
-      <%= msg.content %>
-    </div>
-    <div class="msg-display-name">
-      <%= msg.user.name %>
+
+
+<% if !msg.content.strip.empty? %>
+  <div class="msg-display">
+    <div class="<%= msg.user_id == current_user.id ? 
+    'msg-display-self' : 'msg-display-other' %>">
+      <div class="msg-display-date">
+        <%= msg.created_at.in_time_zone('Asia/Kathmandu').strftime("%-d %b, %Y %H:%M") %>
+      </div>
+      <div class="msg-display-content">
+        <%= msg.content %>
+      </div>
+      <div class="msg-display-name">
+        <%= msg.user.name %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div class="msg-display">
   <% if msg.images.present? %>
