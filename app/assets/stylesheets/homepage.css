@@ -321,6 +321,7 @@
   width: 80px;
   margin: 15px 0px;
   display: flex;
+  transition: 0.4s;
 }
 
 .msg-display img:hover{

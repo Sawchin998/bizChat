@@ -115,7 +115,7 @@
                     <%= u.name %>
                   </div>
                   <div class="left-item4-msg">
-                    <%= Message.find(u.latest_message_id).content %>
+                    <%=  !Message.find(u.latest_message_id).content.empty? ? Message.find(u.latest_message_id).content : "Photo message" %>
                   </div>
                 </div>
               </div>
