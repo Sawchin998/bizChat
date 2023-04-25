@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 70px;
 }
 
 .top-item {
@@ -33,6 +34,7 @@
   flex: 4;
   display: flex;
   flex-direction: column;
+  max-width: 420px;
 }
 
 .left-item1 {
@@ -201,6 +203,7 @@
   background-color: whitesmoke;
   flex: 8;
   position: relative;
+  max-width: 800px;
 }
 
 .middle-section-content {
@@ -268,6 +271,8 @@
   border-radius: 20px;
   margin-left: auto;
   color: white;
+  overflow-wrap: anywhere;
+  max-width: 77%;
 }
 
 .msg-display-other .msg-display-content{
@@ -275,6 +280,8 @@
   background-color: gray;
   border-radius: 20px;
   margin-right: auto;
+  overflow-wrap: anywhere;
+  max-width: 77%;
 }
 
 .msg-display-other .msg-display-date{
