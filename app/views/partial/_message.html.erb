@@ -2,15 +2,32 @@
   <div class="msg-display">
     <div class="<%= msg.user_id == sender.id ? 
     'msg-display-self' : 'msg-display-other' %>">
+
       <div class="msg-display-date">
         <%= msg.created_at.in_time_zone('Asia/Kathmandu').strftime("%-d %b, %Y %H:%M") %>
       </div>
+
       <div class="msg-display-content">
         <%= msg.content %>
       </div>
-      <div class="msg-display-name">
-        <%= msg.user.name %>
+
+      <div class="msg-display-info">
+        <div class="msg-display-avatar">
+          <% if msg.user.avatar.present?%>
+            <%= image_tag url_for(msg.user.avatar) %>
+          <% else %>
+            <% if msg.user.gender == "male"%>
+              <%= image_tag "male_avatar.png" %>
+            <% else %>
+              <%= image_tag "female_avatar.png" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="msg-display-name">
+          <%= msg.user.name %>
+        </div>
       </div>
+
     </div>
   </div>
 <% end %>
@@ -22,13 +39,28 @@
       <div class="msg-display-date">
         <%= msg.images.record.created_at.in_time_zone('Asia/Kathmandu').strftime("%-d %b, %Y %H:%M") %>
       </div>
-      <div>
+
+      <div class="img-send">
         <% msg.images.each do |img|%>
           <%= image_tag url_for(img) %>
         <% end %>
       </div>
-      <div class="msg-display-name">
-        <%= msg.images.record.user.name %>
+
+      <div class="msg-display-info">
+        <div class="msg-display-avatar">
+          <% if msg.images.record.user.avatar.present?%>
+            <%= image_tag url_for(msg.user.avatar) %>
+          <% else %>
+            <% if msg.images.record.user.gender == "male"%>
+              <%= image_tag "male_avatar.png" %>
+            <% else %>
+              <%= image_tag "female_avatar.png" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="msg-display-name">
+          <%= msg.images.record.user.name %>
+        </div>
       </div>
     </div>
   <% end %>

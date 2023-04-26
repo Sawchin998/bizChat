@@ -323,36 +323,45 @@
   margin-left: auto;
 }
 
-.msg-display-other .msg-display-name{
+.msg-display-other .msg-display-info{
   font-size: 14px;
-  margin-top: 2px;
+  margin-top: 5px;
   color: #171616;
-  margin-left: 2%;
   font-weight: 500;
   font-style: italic;
+  display: flex;
 }
 
-.msg-display-self .msg-display-name{
+.msg-display-self .msg-display-info{
   font-size: 14px;
-  margin-top: 1px;
+  margin-top: 5px;
   color: #171616;
-  margin-left: 92%;
   font-weight: 500;
   font-style: italic;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-.msg-display img{
+.msg-display-avatar img {
+  width: 20px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+.msg-display .img-send img{
   width: 80px;
   margin: 15px 0px;
   display: flex;
   transition: 0.4s;
 }
 
-.msg-display img:hover{
+.msg-display .img-send img:hover{
   width: 400px;
 }
 
-.msg-display-self img{
+.msg-display-self .img-send img{
   margin-left: auto;
 }
 
