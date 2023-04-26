@@ -1,25 +1,45 @@
 <%= turbo_frame_tag "edit-add" do%>
-  <div class="user-msg">
-    <div id="latest-msg">
-    </div>
-    <% (current_user.messages + @user.messages).sort_by(&:created_at).reverse_each do |msg| %>
-      <% if (msg.user_id == current_user.id && msg.receiver_id == @user.id) || 
-            (msg.user_id == @user.id && msg.receiver_id == current_user.id) %>
-        <%= render partial: "partial/message", locals: { msg: msg, sender: current_user} %>
+  <div class="edit-add-container">
+    <div class="user-msg">
+      <div id="latest-msg">
+      </div>
+      <% (current_user.messages + @user.messages).sort_by(&:created_at).reverse_each do |msg| %>
+        <% if (msg.user_id == current_user.id && msg.receiver_id == @user.id) || 
+              (msg.user_id == @user.id && msg.receiver_id == current_user.id) %>
+          <%= render partial: "partial/message", locals: { msg: msg, sender: current_user} %>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <div class="msg-send">
-      <%= form_with(model: [@user, @user.messages.build], local: true) do |form| %>
-        <%= form.hidden_field :receiver_type, value: "User" %>
-        <%= form.hidden_field :receiver_id, value: @user.id %> 
-        <%= form.text_field :content %>
-        
-        <div class="send-attach">
-          <%= form.file_field :images, multiple: true %>
-          <%= form.submit "Send" %>
-        </div>
-      <% end %>
+      <div class="msg-send">
+        <%= form_with(model: [@user, @user.messages.build], local: true) do |form| %>
+          <%= form.hidden_field :receiver_type, value: "User" %>
+          <%= form.hidden_field :receiver_id, value: @user.id %> 
+          <%= form.text_field :content %>
+          
+          <div class="send-attach">
+            <%= form.file_field :images, multiple: true %>
+            <%= form.submit "Send" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="info-bar">
+      <div class= "info-bar-avatar">
+        <% if @user.avatar.present?%>
+          <%= image_tag url_for(@user.avatar) %>
+        <% else %>
+          <% if @user.gender == "male"%>
+            <%= image_tag "male_avatar.png" %>
+          <% else %>
+            <%= image_tag "female_avatar.png" %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class= "info-bar-name">
+        <%= @user.name %>
+      </div>
     </div>
   </div>
 <% end %>

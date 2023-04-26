@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "edit-add" do%>
   <div class="edit-add-container">
     <div class="grp-msg">
-    <div id="new-msg">
-    </div>
+      <div id="new-msg">
+      </div>
       <% @group.messages.reverse_each do |msg|%>
         <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
       <% end %>
