@@ -1,6 +1,19 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :group_admin?, only: [:edit, :update]
+  before_action :group_admin?, only: [:edit, :update, :add_user]
+
+  def list_user
+    @group = Group.find(params[:id])
+    @users = @group.users
+  end
+
+  def search
+    @group = Group.find(params[:group_search][:group_id])
+    @search = User.where("name LIKE ? OR email LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+                .where.not(id: @group.users.pluck(:id))
+                .order("name ASC")
+  end
+  
 
   def new
     @group = Group.new
@@ -33,6 +46,13 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def add_user
+    @group = Group.find(params[:id])
+    @user = User.find(params[:user_id])
+    @group.users << @user
+    redirect_to root_url
   end
 
   private

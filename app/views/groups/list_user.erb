@@ -1,0 +1,36 @@
+<%= turbo_frame_tag "space-content" do%>
+  <div class="participants-search">
+    <%= form_for :group_search, url: 'groups/search', method: :post do |f| %>
+      <%= f.hidden_field :group_id, value: @group.id %>
+      <%= f.text_field :query, name: 'query', placeholder: 'Search', autocomplete: false %>
+      <%= button_tag type: "submit", data: { turbo_frame: "participants-frame"} do %>
+        <%= image_tag "Magnifier.png" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="participants">
+    <%= turbo_frame_tag "participants-frame" do %>
+      <% @users.each do |u|%>
+        <div class="participants-list">
+          <div class="participants-list-avatar">
+            <% if u.avatar.present?%>
+              <%= image_tag url_for(u.avatar) %>
+            <% else %>
+              <% if u.gender == "male"%>
+                <%= image_tag "male_avatar.png" %>
+              <% else %>
+                <%= image_tag "female_avatar.png" %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="participants-list-content">
+            <%= u.name %><br>
+            <%= u.email%>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

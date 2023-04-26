@@ -1,0 +1,33 @@
+<%= turbo_frame_tag "participants-frame" do%>
+  <% @search.each do |user|%>
+    <div class="user-search">
+      <div class= "user-search-avatar">
+        <% if user.avatar.present?%>
+          <%= image_tag url_for(user.avatar) %>
+        <% else %>
+          <% if user.gender == "male"%>
+            <%= image_tag "male_avatar.png" %>
+          <% else %>
+            <%= image_tag "female_avatar.png" %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="user-search-content">
+        <div class="user-search-name"> 
+          <%= user.name %>
+        </div>
+        <div class="user-search-email"> 
+          <%= user.email %>
+        </div>
+      </div>
+
+      <div class="add-new2">
+        <%= button_to add_user_group_path(@group, user_id: user.id),
+         method: :post do %>
+          <%= image_tag "add_new.png" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
