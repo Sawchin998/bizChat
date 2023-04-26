@@ -236,12 +236,6 @@
   flex:5
 }
 
-.info-bar {
-  flex: 3;
-  display: flex;
-  background-color: white;
-}
-
 .msg-send input[type="text"]{
   width: 80%;
   padding: 8px;
@@ -342,3 +336,53 @@
   margin-left: auto;
 }
 
+.info-bar {
+  flex: 3;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-bar-avatar img{
+  width: 120px;
+  border-radius: 60px;
+  margin-top: 40px;
+}
+
+.info-bar-name {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #545151;
+}
+
+.info-bar-type{
+  color: #545151;
+  margin-top: 2px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.info-bar-setting{
+  margin-top: 8px;
+}
+
+.info-bar-participants {
+  margin-top: 15px;
+}
+
+.info-bar-participants a{
+  color: #545151;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.info-bar-space {
+  overflow-y: scroll;
+}
+
+.update-grp {
+  height: auto;
+}

@@ -23,7 +23,51 @@
     </div>
 
     <div class="info-bar">
-      Info
+      <div class= "info-bar-avatar">
+        <%if @group.name.length == 3%>
+          <%= image_tag "group1.png" %>
+        <%elsif @group.name.length == 4%>
+          <%= image_tag "group2.png" %>
+        <%elsif @group.name.length == 5%>
+          <%= image_tag "group3.png" %>
+        <%elsif @group.name.length == 6%>
+          <%= image_tag "group3.jpg" %>
+        <%elsif @group.name.length == 7%>
+          <%= image_tag "group5.jpeg" %>
+        <%else%> 
+          <%= image_tag "group6.jpeg" %>
+        <%end%>
+      </div>
+
+      <div class= "info-bar-name">
+        <%= @group.name %>
+      </div>
+
+      <div class= "info-bar-type">
+        Group
+      </div>
+
+      <div class= "info-bar-setting">
+        <%= link_to edit_group_path, data: {turbo_frame: "space-content"} do%>
+          <%= image_tag "settings2.png" %>
+        <% end %>
+      </div>
+
+      <div class= "info-bar-participants">
+        <%= link_to "#" do%>
+          <div>
+            <%= image_tag "participants.png" %>
+          </div>
+
+          <div>
+            Participants
+          </div>
+        <% end %>
+      </div>
+
+      <div class= "info-bar-space">
+        <%= turbo_frame_tag "space-content" %>
+      </div>
     </div>
   </div>
 <% end %>
