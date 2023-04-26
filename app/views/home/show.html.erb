@@ -16,7 +16,7 @@
         <%= form.text_field :content %>
         
         <div class="send-attach">
-          <%= form.file_field :images %>
+          <%= form.file_field :images, multiple: true %>
           <%= form.submit "Send" %>
         </div>
       <% end %>

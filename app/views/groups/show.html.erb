@@ -1,23 +1,29 @@
 <%= turbo_frame_tag "edit-add" do%>
-  <div class="grp-msg">
-   <div id="new-msg">
+  <div class="edit-add-container">
+    <div class="grp-msg">
+    <div id="new-msg">
     </div>
-    <% @group.messages.reverse_each do |msg|%>
-      <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
-    <% end %>
-   
-
-    <div class="msg-send">
-      <%= form_with(model: [@group, @group.messages.build], local: true) do |form| %>
-        <%= form.hidden_field :receiver_type, value: "Group" %>
-        <%= form.hidden_field :receiver_id, value: @group.id %> 
-        <%= form.text_field :content %>
-      
-        <div class="send-attach">
-          <%= form.file_field :images%>
-          <%= form.submit "Send" %>
-        </div>
+      <% @group.messages.reverse_each do |msg|%>
+        <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
       <% end %>
+    
+
+      <div class="msg-send">
+        <%= form_with(model: [@group, @group.messages.build], local: true) do |form| %>
+          <%= form.hidden_field :receiver_type, value: "Group" %>
+          <%= form.hidden_field :receiver_id, value: @group.id %> 
+          <%= form.text_field :content, autocomplete: "off" %>
+        
+          <div class="send-attach">
+            <%= form.file_field :images, multiple: true%>
+            <%= form.submit "Send" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="info-bar">
+      Info
     </div>
   </div>
 <% end %>

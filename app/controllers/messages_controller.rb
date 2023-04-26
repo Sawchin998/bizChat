@@ -31,6 +31,6 @@ class MessagesController < ApplicationController
   private
   
   def message_params
-    params.require(:message).permit(:content, :receiver, :receiver_type, :receiver_id, :images)
+    params.require(:message).permit(:content, :receiver, :receiver_type, :receiver_id, images: [] )
   end
 end

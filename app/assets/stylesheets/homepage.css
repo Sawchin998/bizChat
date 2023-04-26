@@ -202,8 +202,6 @@
 .middle-section {
   background-color: whitesmoke;
   flex: 8;
-  position: relative;
-  max-width: 800px;
 }
 
 .middle-section-content {
@@ -216,12 +214,17 @@
   color: #736D6D;
 }
 
+.edit-add-container {
+  display: flex;
+  height: 100vh;
+}
+
 .msg-send form{
   padding: 0;
   background-color: transparent;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 40%;
 }
 
 .user-msg,
@@ -230,6 +233,13 @@
   height: 92%;
   display: flex;
   flex-direction: column-reverse;
+  flex:5
+}
+
+.info-bar {
+  flex: 3;
+  display: flex;
+  background-color: white;
 }
 
 .msg-send input[type="text"]{
@@ -332,7 +342,3 @@
   margin-left: auto;
 }
 
-.right-section {
-  background-color: yellow;
-  flex: 4;
-}
