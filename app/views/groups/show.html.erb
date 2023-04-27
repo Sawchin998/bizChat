@@ -47,11 +47,13 @@
         <%= (current_user.id == @group.admin_id) ? "Group Admin" : "Group User"%>
       </div>
 
-      <div class= "info-bar-setting">
-        <%= link_to edit_group_path, data: {turbo_frame: "space-content"} do%>
-          <%= image_tag "settings2.png" %>
-        <% end %>
-      </div>
+      <% if current_user.id == @group.admin_id %>
+        <div class= "info-bar-setting">
+          <%= link_to edit_group_path, data: {turbo_frame: "space-content"} do%>
+            <%= image_tag "settings2.png" %>
+          <% end %>
+        </div>
+      <% end %>
 
       <div class= "info-bar-participants">
         <%= link_to list_user_path, data: {turbo_frame: "space-content"} do%>

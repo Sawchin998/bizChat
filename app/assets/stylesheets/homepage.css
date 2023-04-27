@@ -81,13 +81,13 @@
 
 .participants-list .button_to {
   position: relative;
-  right: -12px;
+  right: 0px;
   top: -21px;
 }
 
 .user-search-grp .button_to{
   position: relative;
-  right: 105px;
+  right: 0px;
   top: -21px;
 }
 

@@ -21,10 +21,11 @@
           <%= user.email %>
         </div>
       </div>
-
-      <%= button_to add_user_group_path(@group, user_id: user.id),
-        method: :post do %>
-        <%= image_tag "add_new.png" %>
+      <% if current_user.id == @group.admin_id %>
+        <%= button_to add_user_group_path(@group, user_id: user.id),
+          method: :post do %>
+          <%= image_tag "add_new.png" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
