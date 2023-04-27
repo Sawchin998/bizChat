@@ -1,30 +1,32 @@
 <%= turbo_frame_tag "edit-add" do%>
   <div class="edit-add-container">
-    <div class="grp-msg" >
-      <div id="new-msg">
-      </div>
-      
-      <div>
-        <% @group.messages.each do |msg|%>
-          <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
-        <% end %>
-      </div>
-    
-    
-
-      <div class="msg-send">
-        <%= form_with(model: [@group, @group.messages.build], local: true) do |form| %>
-          <%= form.hidden_field :receiver_type, value: "Group" %>
-          <%= form.hidden_field :receiver_id, value: @group.id %> 
-          <%= form.text_field :content, autocomplete: "off" %>
+    <%= turbo_frame_tag "frame-grp-msg" do%>
+      <div class="grp-msg" >
+        <div id="new-msg">
+        </div>
         
-          <div class="send-attach">
-            <%= form.file_field :images, multiple: true%>
-            <%= form.submit "Send" %>
-          </div>
-        <% end %>
+        <div>
+          <% @group.messages.each do |msg|%>
+            <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
+          <% end %>
+        </div>
+      
+      
+
+        <div class="msg-send">
+          <%= form_with(model: [@group, @group.messages.build], local: true, data: {turbo_frame: "frame-grp-msg"}) do |form| %>
+            <%= form.hidden_field :receiver_type, value: "Group" %>
+            <%= form.hidden_field :receiver_id, value: @group.id %> 
+            <%= form.text_field :content, autocomplete: "off" %>
+          
+            <div class="send-attach">
+              <%= form.file_field :images, multiple: true%>
+              <%= form.submit "Send" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="info-bar">
       <div class= "info-bar-avatar">

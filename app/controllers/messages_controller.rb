@@ -9,8 +9,11 @@ class MessagesController < ApplicationController
     if receiver_type == "User"
       @message.receiver = User.find(params[:message][:receiver_id])
     elsif receiver_type == "Group"
+      @group =  Group.find(params[:message][:receiver_id])
       @message.receiver = Group.find(params[:message][:receiver_id])
     end
+
+    
   
     if @message.save
       if receiver_type == "User"
@@ -22,6 +25,8 @@ class MessagesController < ApplicationController
         GroupChannel.broadcast_to(@message.receiver, render_to_string(partial: "partial/message", 
           locals: { msg: @message, sender: @message.receiver }))
       end
+
+      redirect_to @group
     else
       render  status: :unprocessable_entity
     end
