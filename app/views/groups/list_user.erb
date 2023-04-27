@@ -2,7 +2,7 @@
   <div class="participants-search">
     <%= form_for :group_search, url: 'groups/search', method: :post do |f| %>
       <%= f.hidden_field :group_id, value: @group.id %>
-      <%= f.text_field :query, name: 'query', placeholder: 'Search', autocomplete: false %>
+      <%= f.text_field :query, name: 'query', placeholder: 'Search', autocomplete: "off" %>
       <%= button_tag type: "submit", data: { turbo_frame: "participants-frame"} do %>
         <%= image_tag "Magnifier.png" %>
       <% end %>

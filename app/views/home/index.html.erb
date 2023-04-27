@@ -81,7 +81,7 @@
       </div>
         <div class="left-item3-search">
           <%= form_for :search, url: 'home/search', method: :post do |f| %>
-            <%= f.text_field :query, name: 'query', placeholder: 'Search' %>
+            <%= f.text_field :query, name: 'query', placeholder: 'Search', autocomplete: "off" %>
             <%= button_tag type: "submit", data: { turbo_frame: "search-frame"} do %>
               <%= image_tag "Magnifier.png" %>
             <% end %>

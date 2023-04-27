@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "edit-add" do%>
   <div class="edit-add-container">
-    <div class="grp-msg" id="message99">
+    <div class="grp-msg" >
       <div id="new-msg">
       </div>
       
-      <div id="message99">
+      <div>
         <% @group.messages.each do |msg|%>
           <%= render partial: "partial/message", locals: { msg: msg, sender: current_user } %>
         <% end %>

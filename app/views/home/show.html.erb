@@ -14,7 +14,7 @@
         <%= form_with(model: [@user, @user.messages.build], local: true) do |form| %>
           <%= form.hidden_field :receiver_type, value: "User" %>
           <%= form.hidden_field :receiver_id, value: @user.id %> 
-          <%= form.text_field :content %>
+          <%= form.text_field :content, autocomplete: "off" %>
           
           <div class="send-attach">
             <%= form.file_field :images, multiple: true %>
