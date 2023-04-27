@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :group_admin?, only: [:edit, :update, :add_user, :remove_user]
+  before_action :group_admin?, only: [:edit, :update, :add_user, :remove_user, :destroy]
 
   def list_user
     @group = Group.find(params[:id])
@@ -67,6 +67,11 @@ class GroupsController < ApplicationController
     redirect_to @group
   end
 
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to root_path
+  end
 
   private
 

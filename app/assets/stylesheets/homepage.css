@@ -415,6 +415,11 @@
   margin-top: 8px;
 }
 
+.info-bar-destroy img{
+  width: 20px;
+  margin-top: 15px;
+}
+
 .info-bar-participants {
   margin-top: 15px;
 }
