@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :group_admin?, only: [:edit, :update, :add_user]
+  before_action :group_admin?, only: [:edit, :update, :add_user, :remove_user]
 
   def list_user
     @group = Group.find(params[:id])
@@ -52,8 +52,21 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @user = User.find(params[:user_id])
     @group.users << @user
-    redirect_to root_url
+    redirect_to @group
   end
+
+  def remove_user
+    @group = Group.find(params[:id])
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      flash[:error] = "You cannot remove yourself from the group."
+    else
+      @group.users.delete(@user)
+      flash[:success] = "User removed from the group."
+    end
+    redirect_to @group
+  end
+
 
   private
 

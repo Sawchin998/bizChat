@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "participants-frame" do%>
   <% @search.each do |user|%>
-    <div class="user-search">
+    <div class="user-search-grp">
       <div class= "user-search-avatar">
         <% if user.avatar.present?%>
           <%= image_tag url_for(user.avatar) %>
@@ -22,12 +22,10 @@
         </div>
       </div>
 
-      <div class="add-new2">
-        <%= button_to add_user_group_path(@group, user_id: user.id),
-         method: :post do %>
-          <%= image_tag "add_new.png" %>
-        <% end %>
-      </div>
+      <%= button_to add_user_group_path(@group, user_id: user.id),
+        method: :post do %>
+        <%= image_tag "add_new.png" %>
+      <% end %>
     </div>
   <% end %>
 <% end %>

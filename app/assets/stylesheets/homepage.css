@@ -79,10 +79,24 @@
   top: 0;
 }
 
-.add-new2 button{
+.participants-list .button_to {
+  position: relative;
+  right: -12px;
+  top: -21px;
+}
+
+.user-search-grp .button_to{
   position: relative;
   right: 105px;
   top: -21px;
+}
+
+.participants-list .button_to img{
+  width: 20px;
+}
+
+.participants-list .button_to button,
+.user-search-grp .button_to button{
   background-color: white;
   border: none;
   border-radius: 20px;
@@ -161,6 +175,8 @@
   border-radius: 20px;
 }
 
+.participants-list .button_to button:active,
+.user-search-grp .button_to button:active,
 .participants-search button:active,
 .left-item3-search button:active {
   box-shadow: 10px 10px 10px gray;
@@ -178,6 +194,7 @@
   margin-left: 10px;
 }
 
+.user-search-grp,
 .user-search,
 .conversation {
   display: flex;

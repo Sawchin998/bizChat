@@ -29,6 +29,11 @@
             <%= u.name %><br>
             <%= u.email%>
           </div>
+
+          <%= button_to remove_user_group_path(@group, user_id: u.id),
+            method: :delete do %>
+            <%= image_tag "remove-icon.png" %>
+          <% end %>
         </div>
       <% end %>
     <% end %>

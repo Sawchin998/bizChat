@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post 'groups/search', to: 'groups#search', as: :group_search
   get '/groups/:id/list_user', to: 'groups#list_user', as: :list_user
   post '/groups/:id/add_user', to: 'groups#add_user', as: :add_user_group
+  delete '/groups/:id/remove_user', to: 'groups#remove_user', as: :remove_user_group
 
 end
