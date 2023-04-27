@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   def search
     @search = User.where("name LIKE ? OR email LIKE ?",  "%#{params[:query]}%", "%#{params[:query]}%")
                   .where.not(id: current_user.id)
-                  .order("name ASC")
+                  .order("name ASC")          
   end
 
   def show
@@ -18,10 +18,8 @@ class HomeController < ApplicationController
   private
 
   def conversation
-    # Get the messages for the current user
     @messages = Message.where(user_id: current_user.id).or(Message.where(receiver_id: current_user.id))
 
-    # Join the users table to get the sender and receiver information
     @users = User.joins("INNER JOIN messages ON users.id = messages.user_id OR users.id = messages.receiver_id")
               .where(messages: { receiver_type: 'User', id: @messages.select(:id) })
               .where.not(id: current_user.id)
