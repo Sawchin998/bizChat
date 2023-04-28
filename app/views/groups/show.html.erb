@@ -62,7 +62,7 @@
 
       <% if current_user.id == @group.admin_id %>
         <div class= "info-bar-destroy">
-          <%= link_to group_path(@group), data: {turbo_method: :delete} do%>
+          <%= link_to group_path(@group), data: {turbo_method: :delete}, onclick: "return confirm('Are you sure?');" do%>
             <%= image_tag "destroy.png" %>
           <% end %>
         </div>
