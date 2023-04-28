@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :group_admin?, only: [:edit, :update, :add_user, :remove_user, :destroy]
+  before_action :group_user?, only: [:show]
 
   def list_user
     @group = Group.find(params[:id])
@@ -84,6 +85,13 @@ class GroupsController < ApplicationController
     unless current_user.id == @group.admin_id
       flash[:error] = "You do not have permission to access this page."
       redirect_to @group
+    end
+  end
+
+  def group_user?
+    @group = Group.find(params[:id])
+    unless @group.users.include?(current_user)
+      redirect_to root_path, alert: "You are not a member of this group."
     end
   end
 end
