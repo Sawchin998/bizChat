@@ -317,15 +317,17 @@
   color: white;
   overflow-wrap: anywhere;
   max-width: 77%;
+  box-shadow: 5px 5x 5px rgb(26, 25, 25);
 }
 
 .msg-display-other .msg-display-content{
   padding: 10px 15px;
-  background-color: gray;
+  background-color: rgb(238, 235, 235);
   border-radius: 20px;
   margin-right: auto;
   overflow-wrap: anywhere;
   max-width: 77%;
+  box-shadow: 3px 3x 5px rgb(26, 25, 25);
 }
 
 .msg-display-other .msg-display-date{
