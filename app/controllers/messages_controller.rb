@@ -24,9 +24,9 @@ class MessagesController < ApplicationController
       elsif receiver_type == "Group"
         GroupChannel.broadcast_to(@message.receiver, render_to_string(partial: "partial/message", 
           locals: { msg: @message, sender: @message.receiver }))
+          redirect_to @group
       end
-
-      redirect_to @group
+      
     else
       render  status: :unprocessable_entity
     end

@@ -1,6 +1,5 @@
 <%= turbo_frame_tag "edit-add" do%>
   <div class="edit-add-container">
-    <%= turbo_frame_tag "frame-grp-msg" do%>
       <div class="grp-msg" >
         <div id="new-msg">
         </div>
@@ -14,7 +13,7 @@
       
 
         <div class="msg-send">
-          <%= form_with(model: [@group, @group.messages.build], local: true, data: {turbo_frame: "frame-grp-msg"}) do |form| %>
+          <%= form_with(model: [@group, @group.messages.build], local: true, data: {turbo_frame: "edit-add"}) do |form| %>
             <%= form.hidden_field :receiver_type, value: "Group" %>
             <%= form.hidden_field :receiver_id, value: @group.id %> 
             <%= form.text_field :content, autocomplete: "off" %>
@@ -26,7 +25,7 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+    
 
     <div class="info-bar">
       <div class= "info-bar-avatar">
