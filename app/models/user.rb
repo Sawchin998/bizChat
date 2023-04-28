@@ -14,8 +14,6 @@ class User < ApplicationRecord
     message: "of Bajra Technologies are allowed" }
   validates :name, presence: true, length: { minimum: 2 }
   validates :gender, presence: true
-  validates :password, presence: true, length: { minimum: 8 }, if: :password_required?
- 
 
  
 
@@ -23,8 +21,5 @@ class User < ApplicationRecord
   def normalize_name
     self.name = name.strip if name.present?
   end
-
-  def password_required?
-    !persisted? || !password.nil? || !password_confirmation.nil?
-  end
+  
 end

@@ -1,4 +1,4 @@
-<div>
+<div class="outer">
   <div class="main-text">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <div class="bizz-chat">
@@ -12,12 +12,14 @@
 
     <div class="field">
       <%= f.label :password, "New password" %><br />
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      <%= f.password_field :password %>
+      <%= render "devise/shared/error_messages", resource: resource, attribute: :password %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation, "Confirm new password" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation %>
+      <%= render "devise/shared/error_messages", resource: resource, attribute: :password_confirmation %>
     </div>
 
     <div class="actions">

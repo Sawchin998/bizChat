@@ -133,8 +133,8 @@ label {
 	font-size: 12px;
 }  
 
-.alert-msg {
-	color: red;
+.notice-msg {
+	color: green;
 	font-size: 12px;
 } 
 
