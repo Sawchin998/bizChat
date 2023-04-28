@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     if receiver_type == "User"
       @message.receiver = User.find(params[:message][:receiver_id])
     elsif receiver_type == "Group"
-      @group =  Group.find(params[:message][:receiver_id])
       @message.receiver = Group.find(params[:message][:receiver_id])
     end
 
@@ -21,10 +20,11 @@ class MessagesController < ApplicationController
           locals: { msg: @message, sender: @message.receiver }))
         MessagesChannel.broadcast_to(@message.user, render_to_string(partial: "partial/message", 
           locals: { msg: @message, sender: @message.user }))
+        redirect_to home_path(@message.receiver)
       elsif receiver_type == "Group"
         GroupChannel.broadcast_to(@message.receiver, render_to_string(partial: "partial/message", 
           locals: { msg: @message, sender: @message.receiver }))
-        redirect_to @group
+        redirect_to @message.receiver
       end
       
     else

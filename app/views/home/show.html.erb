@@ -18,7 +18,7 @@
           
           <div class="send-attach">
             <%= form.file_field :images, multiple: true %>
-            <%= form.submit "Send" %>
+            <%= form.submit "Send", data: {turbo_frame: "edit-add"} %>
           </div>
         <% end %>
       </div>
