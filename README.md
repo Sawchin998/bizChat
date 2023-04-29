@@ -1,10 +1,10 @@
 # README
 
-Overview
+#Overview
 
 bizChat is a messenger application built with Ruby on Rails with ruby version '3.1.3p185' and rails version '7.0.4.3'. It allows users to send messages to each other in real-time and view their conversation history. Users can also create groups for group messages.
 
-Installation
+#Installation
 
 To install bizChat, follow these steps:
 
@@ -13,7 +13,7 @@ To install bizChat, follow these steps:
   3.  Set up the database: rails db:migrate
   4.  Start the server: rails server
 
-Usage
+#Usage
 
 To use bizChat, follow these steps:
 
@@ -23,7 +23,7 @@ To use bizChat, follow these steps:
   4.  Send a message by typing it into the message input and pressing "send".
   5.  View your conversation history by selecting a conversation from the list of previous conversations.
 
-Configuration
+#Configuration
 
 bizChat uses the following environment variables:
 
@@ -32,7 +32,7 @@ bizChat uses the following environment variables:
 
 To set these variables, create a .env file in the root directory of the project and add the these env variables.
 
-Gems
+#Gems
 
 Beside the default gem used by rails projects, these gems are used:
 
