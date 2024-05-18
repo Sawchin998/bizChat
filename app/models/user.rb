@@ -10,16 +10,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum :gender, { male: 0, female: 1, others: 2 }
-  validates :email, format: { with: /\A[\w+\-.]+@bajratechnologies.com\z/i,
-    message: "of Bajra Technologies are allowed" }
   validates :name, presence: true, length: { minimum: 2 }
   validates :gender, presence: true
 
- 
+
 
   private
   def normalize_name
     self.name = name.strip if name.present?
   end
-  
+
 end
